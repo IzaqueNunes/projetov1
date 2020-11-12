@@ -8,14 +8,7 @@ const ProdutosCard = ({ produtos }) => (
       <h1 className="produtos-card__title">{produtos.title}</h1>
       <span className="produtos-card__price">R$ {produtos.price}</span>
       <footer className="produtos-card__footer">
-        {produtos.comments.length > 0 && (
-          <div className="produtos-card__comment">"{produtos.comments[0].comment}"</div>
-        )}
-        <div className="produtos-card__comments-count">
-          {produtos.comments.length}{' '}
-          {produtos.comments.length > 1 ? 'Comentários' : 'Comentário'}
-        </div>
-        <a
+      <a
           href={produtos.url}
           target="_blank"
           rel="noopener noreferrer"
@@ -23,6 +16,14 @@ const ProdutosCard = ({ produtos }) => (
         >
           IR PARA O SITE
         </a>
+         {produtos.comments.length > 0 && (
+          <div className="produtos-card__comment">"{produtos.comments[0].comment}"</div>
+        )}
+       <div className="produtos-card__comments-count">
+          {produtos.comments.length}{' '}
+          {produtos.comments.length > 1 ? 'Comentários' : 'Comentário'}
+        </div>
+         
       </footer>
     </div>
   </div>

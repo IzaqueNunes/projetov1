@@ -1,0 +1,16 @@
+.produtos-search__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.produtos-search__input{
+    display: flex;
+
+
+}
+
+.produtos-search__input input{
+    
+}
