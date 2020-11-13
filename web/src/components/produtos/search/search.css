@@ -7,10 +7,17 @@
 
 .produtos-search__input{
     display: flex;
-
-
+    height: 42px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 40px;
+    padding: 0 10px;
+    font-size: 16px;
 }
 
-.produtos-search__input input{
-    
+.produtos-search__header h1{
+    text-transform: uppercase;
+    color: #e7d800d3;
 }
+
