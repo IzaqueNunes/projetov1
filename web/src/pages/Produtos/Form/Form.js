@@ -6,10 +6,11 @@ import UIContainer from 'components/UI/Container/Container';
 
 const PagesProdutosForm = () => {
     const { id } = useParams();
+
     return (
         
             <UIContainer>
-                <ProdutosForm />
+                <ProdutosForm id={id ? Number.parseInt(id, 10): null} />
             </UIContainer> 
             
         

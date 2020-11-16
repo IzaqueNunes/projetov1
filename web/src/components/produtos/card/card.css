@@ -47,4 +47,14 @@
     color: #e7d800d3;
     text-decoration: none;
     padding: 8px 10px;
+    margin-right: 20px;
+  }
+
+  .produtos-card__editar {
+    text-transform: none;
+    border: 1px solid #e7d800d3;
+    border-radius: 4px;
+    color: #e7d800d3;
+    text-decoration: none;
+    padding: 8px 10px;
   }

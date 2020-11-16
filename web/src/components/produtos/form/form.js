@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import './form.css'
 import axios from 'axios';
@@ -10,25 +10,48 @@ const initialValue={
     price:0,
     descricao:''
 }
-const ProdutosForm= ()=>{
+const ProdutosForm= ({id})=>{
     
-    const [values, setValues] = useState(initialValue);
+    const [values, setValues] = useState(id ? null: initialValue);
     const history = useHistory ();
+    
+
+    useEffect(()=>{
+        if(id){
+            axios.get(`http://localhost:4000/produtos/${id}`)
+                .then((response)=>{
+                
+                setValues(response.data);
+                
+            })
+        }
+
+
+    }, []);
 
 
     function onChange(ev){
         const {name, value} = ev.target;
-        console.log(values);
         setValues({...values, [name]: value});
     }
 
     function onSubmit(ev){
         ev.preventDefault();
 
-        axios.post('http://localhost:4000/produtos', values)
+        const method = id ? 'put' : 'post'; 
+        const url = id  
+            ? `http://localhost:4000/produtos/${id}`
+            : 'http://localhost:4000/produtos'
+
+
+        axios[method](url, values)
         .then ((response)=>{
             history.push('/');
         });
+    }
+
+    if (!values){
+        return <div>Carregando...</div>
     }
 
     return(
@@ -40,32 +63,32 @@ const ProdutosForm= ()=>{
             <form onSubmit={onSubmit}>
                 <div className="prudots-form__group">
                     <label htmlFor="title">Título</label>
-                    <input id="title" name="title" type="text" onChange={onChange}/>
+                    <input id="title" name="title" type="text" onChange={onChange} value={values.title}/>
                 </div>
 
                 <div className="prudots-form__group">
                     <label htmlFor="quantidade">Quantidade</label>
-                    <input id="quantidade" name="quantidade" type="number" onChange={onChange}/>
+                    <input id="quantidade" name="quantidade" type="number" onChange={onChange} value={values.quantidade}/>
                 </div>
 
                 <div className="prudots-form__group">
                     <label htmlFor="imageUrl">Imagem</label>
-                    <input id="imageUrl" name="imageUrl" type="text" onChange={onChange}/>
+                    <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl}/>
                 </div>
 
                 <div className="prudots-form__group">
                     <label htmlFor="price">Preço</label>
-                    <input id="price" name="price" type="number" onChange={onChange}/>
+                    <input id="price" name="price" type="number" onChange={onChange} value={values.price}/>
                 </div>
 
                 <div className="prudots-form__group">
                     <label htmlFor="descricao">Descrição</label>
-                    <textarea id="descricao" name="descricao" type="number" onChange={onChange}/>
+                    <textarea id="descricao" name="descricao" type="number" onChange={onChange} value={values.descricao}/>
                 </div>
 
                 <div>
                     <button type="submit">Salvar</button>
-                </div>
+                </div> 
             </form>
         </div>
     )
