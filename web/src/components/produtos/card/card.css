@@ -1,4 +1,4 @@
-.produtos-card {
+ .produtos-card {
     border-radius: 8px;
     border: 1px solid #C3C3C3;
     box-shadow: 0 2px 7px 0 rgba(0,0,0, 0.15);
@@ -6,6 +6,7 @@
     padding: 15px;
     align-items: flex-start;
     margin-bottom: 20px;
+    position: relative;
   }
   
   
@@ -57,4 +58,17 @@
     color: #e7d800d3;
     text-decoration: none;
     padding: 8px 10px;
+    margin-left: 10px;
+  } 
+
+  .produtos-card__delete-button{
+    border: unset;
+    background-color: unset;
+    font-size: 25px;
+    color: #6d6201;
+    position: absolute;
+    top: 8px;
+    right: 8px;
   }
+
+  

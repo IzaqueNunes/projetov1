@@ -1,19 +1,24 @@
-.prudots-form__group{
+.produtos-form__group{
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.prudots-form__group label{
+.produtos-form__group label{
     margin-bottom: 5px;
     font-size: 14px;
     font-weight: 500;
     color: #555;
 }
 
-.prudots-form__group input{
+.produtos-form__group input{
     border: 1px solid #aaa;
     border-radius: 8px;
     background-color: #fff;
     height: 36px;
 }
+
+.produtos-title{
+    color:#e7d800d3;
+}
+

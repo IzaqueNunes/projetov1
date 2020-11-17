@@ -1,0 +1,19 @@
+.ui-button {
+    background-color: unset;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+  
+  .ui-button--bordered-blue {
+    color: #e7d800d3;
+    border: 1px solid currentColor;
+  }
+  .ui-button--contained-green {
+    color: #6d6201;
+    background-color: #e7d800d3;
+    border: 1px solid #e7d800d3;
+  }
+ 

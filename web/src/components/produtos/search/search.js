@@ -1,14 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ProdutosList from 'components/produtos/list/list';
+import UIButton from 'components/UI/Button/Button';
 
 import {Link} from 'react-router-dom'; 
 import './search.css'
+import useApi from 'components/utils/useApi';
+
+const baseParams = {
+  _embed: 'comments',
+  _order: 'desc',
+  _sort: 'id',
+  _limit: 5,
+};
 
 const ProdutosSearch=() =>{
 
     const [produtos, setProdutos] = useState([]);
     const [search, setSearch] = useState('');
+    const [load, loadInfo] = useApi({
+      debounceDelay: 300,
+      url: '/produtos',
+      method: 'get',
+    })
 
   useEffect(() =>{
     const params={};
@@ -20,13 +34,18 @@ const ProdutosSearch=() =>{
         setProdutos(response.data);
       });
   }, [search]);
+  
 
   return (
       
       <div className="produtos-search">
           <header className="produtos-search__header">
               <h1>Produtos Cadastrados</h1>
-              <Link to="/create">Cadastrar um Produto</Link>
+              <UIButton 
+              component={Link} to={"/create"} theme = "contained-green">
+              Cadastrar um Produto
+                </UIButton>
+            
           </header>
          <input 
          className="produtos-search__input" 
@@ -35,7 +54,15 @@ const ProdutosSearch=() =>{
          value={search}
          onChange={(ev)=> setSearch(ev.target.value)}
          />
-        <ProdutosList produtos={produtos} loading={!produtos.length}/>
+        <ProdutosList 
+          produtos={produtos} 
+          loading={!produtos.length}
+          refetch={()=> {
+            load({
+              params: baseParams
+            })
+          }}
+          />
       </div>
   )
 };
