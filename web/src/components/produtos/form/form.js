@@ -6,7 +6,7 @@ import axios from 'axios';
 const initialValue={
     title: '',
     quantidade: 0,
-    ImageUrl:'',
+    image:'',
     price:0,
     descricao:''
 }
@@ -72,8 +72,8 @@ const ProdutosForm= ({id})=>{
                 </div>
 
                 <div className="produtos-form__group">
-                    <label htmlFor="imageUrl">Imagem</label>
-                    <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl}/>
+                    <label htmlFor="image">Imagem</label>
+                    <input id="image" name="image" type="file" onChange={onChange} value={values.image}/>
                 </div>
 
                 <div className="produtos-form__group">

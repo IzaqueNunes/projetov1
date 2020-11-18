@@ -7,6 +7,7 @@ import {
 
 import PagesProdutosSearch from './Produtos/Search/Search';
 import PagesProdutosForm from './Produtos/Form/Form';
+import PagesLoginForm from './Produtos/Login/Login';
 
 
 const Root = () => {
@@ -16,6 +17,8 @@ const Root = () => {
                 <Route path="/create" component={PagesProdutosForm} />
                 <Route path="/edit/:id" component={PagesProdutosForm} />
                 <Route path="/" component={PagesProdutosSearch} />
+                <Route path="/login" component={PagesLoginForm}/>
+                
             </Switch>
         </Router>
     );

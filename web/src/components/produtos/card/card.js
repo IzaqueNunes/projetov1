@@ -38,6 +38,7 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
         >Editar</UIButton>
         
         
+        
        
          
       </footer>
