@@ -1,98 +1,87 @@
-import React, {useEffect, useState} from 'react';
-import {useHistory} from 'react-router-dom';
-import './form.css'
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './form.css';
 
-const initialValue={
-    title: '',
-    quantidade: 0,
-    image:'',
-    price:0,
-    descricao:''
+const initialValue = {
+  title: '',
+  preco: 0,
+  quantidade: 0,
+  imageUrl: '',
+  descricao: '',
 }
-const ProdutosForm= ({id})=>{
-    
-    const [values, setValues] = useState(id ? null: initialValue);
-    const history = useHistory ();
-    
 
-    useEffect(()=>{
-        if(id){
-            axios.get(`http://localhost:4000/produtos/${id}`)
-                .then((response)=>{
-                
-                setValues(response.data);
-                
-            })
-        }
+const ProdutosForm = ({ id }) => {
+  const [values, setValues] = useState(id ? null: initialValue);
+  const history = useHistory();
 
-
-    }, []);
-
-
-    function onChange(ev){
-        const {name, value} = ev.target;
-        setValues({...values, [name]: value});
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:4000/Produtos/${id}`)
+        .then((response) => {
+          setValues(response.data);
+        })
     }
+  }, []);
 
-    function onSubmit(ev){
-        ev.preventDefault();
+  function onChange(ev) {
+    const { name, value } = ev.target;
 
-        const method = id ? 'put' : 'post'; 
-        const url = id  
-            ? `http://localhost:4000/produtos/${id}`
-            : 'http://localhost:4000/produtos'
+    setValues({ ...values, [name]: value });
+  }
 
+  function onSubmit(ev) {
+    ev.preventDefault();
 
-        axios[method](url, values)
-        .then ((response)=>{
-            history.push('/');
-        });
-    }
+    const method = id ? 'put' : 'post';
+    const url = id
+      ? `http://localhost:4000/Produtos/${id}`
+      : 'http://localhost:4000/Produtos'
 
-    if (!values){
-        return <div>Carregando...</div>
-    }
+    axios[method](url, values)
+      .then((response) => {
+        history.push('/');
+      });
+  }
 
-    return(
+  return (
+    <div>
         <div className="produtos-title">
-            <h1>É QUEIJO UAI</h1>
-            <h2>Cadastrar novo Produto</h2>
-        
-
-            <form onSubmit={onSubmit}>
-                <div className="produtos-form__group">
-                    <label htmlFor="title">Título</label>
-                    <input id="title" name="title" type="text" onChange={onChange} value={values.title}/>
-                </div>
-
-                <div className="produtos-form__group">
-                    <label htmlFor="quantidade">Quantidade</label>
-                    <input id="quantidade" name="quantidade" type="number" onChange={onChange} value={values.quantidade}/>
-                </div>
-
-                <div className="produtos-form__group">
-                    <label htmlFor="image">Imagem</label>
-                    <input id="image" name="image" type="file" onChange={onChange} value={values.image}/>
-                </div>
-
-                <div className="produtos-form__group">
-                    <label htmlFor="price">Preço</label>
-                    <input id="price" name="price" type="number" onChange={onChange} value={values.price}/>
-                </div>
-
-                <div className="produtos-form__group">
-                    <label htmlFor="descricao">Descrição</label>
-                    <textarea id="descricao" name="descricao" type="number" onChange={onChange} value={values.descricao}/>
-                </div>
-
-                <div>
-                    <button type="submit">Salvar</button>
-                </div> 
-            </form>
-        </div>
-    )
-
+      <h1>É QUEIJO UAI</h1>
+      <h2>Cadastrar novo Produto</h2>
+      </div>
+      {!values
+        ? (
+          <div>Carregando...</div>
+        ) : (
+          <form onSubmit={onSubmit}>
+            <div className="produtos-form__group">
+              <label htmlFor="title">Nome</label>
+              <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
+            </div>
+            <div className="produtos-form__group">
+              <label htmlFor="preco">Preço</label>
+              <input id="preco" name="preco" type="number" onChange={onChange} value={values.preco} />
+            </div>
+            <div className="produtos-form__group">
+              <label htmlFor="quantidade">Quantidade</label>
+              <input id="quantidade" name="quantidade" type="number" onChange={onChange} value={values.quantidade} />
+            </div>
+            <div className="produtos-form__group">
+              <label htmlFor="imageUrl">Imagem</label>
+              <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} />
+            </div>
+            <div className="produtos-form__group">
+              <label htmlFor="descricao">Descrição</label>
+              <input id="descricao" name="descricao" type="textarea" onChange={onChange} value={values.descricao} />
+            </div>
+            <div>
+              <button type="submit">Salvar</button>
+            </div>
+          </form>
+        )}
+    </div>
+  )
 };
 
 export default ProdutosForm;

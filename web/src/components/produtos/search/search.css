@@ -1,5 +1,5 @@
 .produtos-search__header{
-    display: flex;
+    display: 1;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -20,4 +20,53 @@
     text-transform: uppercase;
     color: #e7d800d3;
 }
+
+table{
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    background-color: papayawhip;
+  
+  }
+  
+  img{
+    width: 120px;
+    height: 120px;
+  }
+  td{
+     
+    text-align: center;
+    vertical-align: middle; 
+    
+  }
+  
+  .btn{
+    background-color: silver;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+    border: none;
+    font-size: 16px;
+   
+  }
+  
+  .btn:hover{
+    opacity: 0.8;
+  }
+  
+  
+  
+  .redes{
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .redesInsta{
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+  }
+
 
