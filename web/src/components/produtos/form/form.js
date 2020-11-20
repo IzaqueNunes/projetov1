@@ -5,7 +5,7 @@ import './form.css';
 
 const initialValue = {
   title: '',
-  preco: 0,
+  price: 0,
   quantidade: 0,
   imageUrl: '',
   descricao: '',
@@ -60,8 +60,8 @@ const ProdutosForm = ({ id }) => {
               <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
             </div>
             <div className="produtos-form__group">
-              <label htmlFor="preco">Preço</label>
-              <input id="preco" name="preco" type="number" onChange={onChange} value={values.preco} />
+              <label htmlFor="price">Preço</label>
+              <input id="price" name="price" type="number" onChange={onChange} value={values.price} />
             </div>
             <div className="produtos-form__group">
               <label htmlFor="quantidade">Quantidade</label>

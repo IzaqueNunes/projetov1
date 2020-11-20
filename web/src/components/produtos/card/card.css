@@ -17,13 +17,13 @@
   
   .produtos-card__title {
     font-size: 16px;
-    color: #6d6201;
+    color: #060b26;
   }
   
   .produtos-card__price {
     font-size: 26px;
     font-weight: 700;
-    color: #e7d800d3;
+    color: #060b26;
   }
   
   .produtos-card__footer {
@@ -38,34 +38,35 @@
   
   .produtos-card__comments-count {
     margin-left: auto;
-    margin-right: 20px;
-    color: #e7d800d3;
+    margin-right: 10px;
+    color: #060b26;
   }
   
   .produtos-card__link {
-    border: 1px solid #e7d800d3;
+    border: 1px solid #060b26;
     border-radius: 4px;
-    color: #e7d800d3;
+    color: #060b26;
     text-decoration: none;
     padding: 8px 10px;
     margin-right: 20px;
   }
 
-  .produtos-card__editar {
-    text-transform: none;
-    border: 1px solid #e7d800d3;
-    border-radius: 4px;
-    color: #e7d800d3;
-    text-decoration: none;
-    padding: 8px 10px;
-    margin-left: 10px;
-  } 
+  .btn-card{
+    align-items: center;
+    justify-content: center;
+    margin-left: 350px;
+
+  }
+
+  .btn-card__edit{
+    margin-left: 8px;
+  }
 
   .produtos-card__delete-button{
     border: unset;
     background-color: unset;
     font-size: 25px;
-    color: #6d6201;
+    color: #1a83ff;
     position: absolute;
     top: 8px;
     right: 8px;

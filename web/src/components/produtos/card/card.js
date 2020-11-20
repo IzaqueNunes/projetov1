@@ -20,12 +20,10 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
           {produtos.comments.length}{' '}
           {produtos.comments.length > 1 ? 'Comentários' : 'Avaliações'}
         </button>
-
+        <div className="btn-card">
         <UIButton
-          component="a"
-          href={produtos.url}
-          target="_blank"
-          rel="noopener noreferrer"
+          component={Link}
+          to={`/page-produto/${produtos.id}`}
         >
       
           Ver Produto
@@ -34,8 +32,9 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
         <UIButton
           component={Link}
           to={`/edit/${produtos.id}`}
-          className="produtos-card__editar"
+          className="btn-card__edit"
         >Editar</UIButton>
+        </div>
         
         
         

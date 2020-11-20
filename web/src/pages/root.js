@@ -9,10 +9,13 @@ import PagesProdutosSearch from './Produtos/Search/Search';
 import PagesProdutosForm from './Produtos/Form/Form';
 import PagesLoginForm from './Produtos/Login/Login';
 
+import NavBar from 'components/NavBar';
+
 
 const Root = () => {
     return(
         <Router>
+            <NavBar />
             <Switch>
                 <Route path="/create" component={PagesProdutosForm} />
                 <Route path="/edit/:id" component={PagesProdutosForm} />

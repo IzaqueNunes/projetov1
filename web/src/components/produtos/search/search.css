@@ -18,55 +18,28 @@
 
 .produtos-search__header h1{
     text-transform: uppercase;
-    color: #e7d800d3;
+    color: #060b26;
 }
 
-table{
-    color: black;
-    border: 1px solid black;
-    width: 100%;
-    background-color: papayawhip;
-  
-  }
-  
-  img{
-    width: 120px;
-    height: 120px;
-  }
-  td{
-     
-    text-align: center;
-    vertical-align: middle; 
-    
-  }
-  
-  .btn{
-    background-color: silver;
-    border-radius: 6px;
-    padding: 10px;
-    cursor: pointer;
-    color: black;
-    border: none;
-    font-size: 16px;
-   
-  }
-  
-  .btn:hover{
-    opacity: 0.8;
-  }
-  
-  
-  
-  .redes{
-    cursor: pointer;
-    width: 45px;
-    height: 45px;
-  }
-  
-  .redesInsta{
-    cursor: pointer;
-    width: 33px;
-    height: 33px;
-  }
+.btn1{
+  padding: 10px;
+  background-color: #060b26;
+  border: none;
+  color:#fff;
+}
 
+.btn{
+  padding: 10px;
+  margin-right: 25px;
+  margin-left: 245px;
+  background-color: #060b26;
+  border: none;
+  color:#fff;
+}
 
+.titles{
+  display: flex;
+  
+  
+  align-items: center;
+}

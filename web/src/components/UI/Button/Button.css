@@ -8,12 +8,12 @@
   }
   
   .ui-button--bordered-blue {
-    color: #e7d800d3;
+    color: #060b26;
     border: 1px solid currentColor;
   }
   .ui-button--contained-green {
     color: #6d6201;
-    background-color: #e7d800d3;
-    border: 1px solid #e7d800d3;
+    background-color: #060b26;
+    border: 1px solid #060b26;
   }
  
