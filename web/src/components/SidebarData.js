@@ -26,19 +26,19 @@ export const SidebarData = [
   },
   {
     title: 'História da Associação',
-    path: '/',
+    path: '/associacao',
     icon: <BsIcons.BsFillAwardFill />,
     cName: 'nav-text'
   },
   {
     title: 'Rota do Queijo',
-    path: '/',
+    path: '/rotaqueijo',
     icon: <AiIcons.AiFillCar />,
     cName: 'nav-text'
   },
   {
     title: 'Lista de Desejos',
-    path: '/',
+    path: '/desejos',
     icon: <BsIcons.BsHeartFill />,
     cName: 'nav-text'
   },

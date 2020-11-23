@@ -1,19 +1,8 @@
-import React from 'react';
-
-
-const LoginForm = () => {
-    return (
-        <div>
-            <h1>Teste</h1>
-        </div>
-    )
-};
-
-export default LoginForm;
-
-/* import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import UIButton from 'components/UI/Button/Button';
 
 
 const initialValue = {
@@ -51,15 +40,21 @@ const LoginForm = () => {
         </div>
         <div className="produtos-form__group">
           <label htmlFor="Senha">Senha</label>
-          <input id="Senha" name="Senha" type="number" onChange={onChange} />
+          <input id="Senha" name="Senha" type="password"  onChange={onChange} />
         </div>
         <div>
-          <button type="submit">Salvar</button>
+          <button type="submit">Logar</button>
+          <UIButton className="btn1"
+          component={Link} to={"/cadastro"} theme="contained-green">
+          Primeira vez por aqui? Crie uma conta gratuitamente!
+                </UIButton>
+
+
         </div>
       </form> 
     </div>
   )
 };
 
-export default LoginForm; */
+export default LoginForm;
 

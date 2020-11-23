@@ -8,6 +8,10 @@ import {
 import PagesProdutosSearch from './Produtos/Search/Search';
 import PagesProdutosForm from './Produtos/Form/Form';
 import PagesLoginForm from './Produtos/Login/Login';
+import PagesAssociacao from './Produtos/Associacao/Assosiacao';
+import PagesRotaQueijo from './Produtos/RotaQueijo/RotaQueijo';
+import PagesDesejos from './Produtos/Desejos/Desejos';
+import PagesCadastro from './Produtos/Cadastro/Cadastro';
 
 import NavBar from 'components/NavBar';
 
@@ -18,9 +22,17 @@ const Root = () => {
             <NavBar />
             <Switch>
                 <Route path="/create" component={PagesProdutosForm} />
-                <Route path="/edit/:id" component={PagesProdutosForm} />
-                <Route path="/" component={PagesProdutosSearch} />
                 <Route path="/login" component={PagesLoginForm}/>
+                <Route path="/associacao" component={PagesAssociacao}/>
+                <Route path="/edit/:id" component={PagesProdutosForm} />
+                <Route path="/rotaqueijo" component={PagesRotaQueijo} />
+                <Route path="/desejos" component={PagesDesejos} />
+                <Route path="/cadastro" component={PagesCadastro} />
+
+
+
+                <Route path="/" component={PagesProdutosSearch} />
+               
                 
             </Switch>
         </Router>
