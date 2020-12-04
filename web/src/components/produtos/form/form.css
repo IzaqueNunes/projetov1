@@ -1,3 +1,11 @@
+.App-form{
+    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    align-items: center;
+
+}
 .produtos-form__group{
     display: flex;
     flex-direction: column;
@@ -16,9 +24,9 @@
     border-radius: 8px;
     background-color: #fff;
     height: 36px;
+    width: 300px;
 }
 
 .produtos-title{
     color:#060b26;
 }
-

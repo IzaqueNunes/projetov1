@@ -45,19 +45,19 @@ const ProdutosForm = ({ id }) => {
   }
 
   return (
-    <div>
+    <div className="App-form">
         <div className="produtos-title">
-      <h1>É QUEIJO UAI</h1>
-      <h2>Cadastrar novo Produto</h2>
+      <h1 >É QUEIJO UAI</h1>
+      <h2 >Cadastrar novo Produto</h2>
       </div>
       {!values
         ? (
           <div>Carregando...</div>
         ) : (
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} >
             <div className="produtos-form__group">
               <label htmlFor="title">Nome</label>
-              <input id="title" name="title" type="text" onChange={onChange} value={values.title} />
+              <input id="title" name="title" type="text" onChange={onChange} value={values.title}  placeholder="Insira o nome do produto"/>
             </div>
             <div className="produtos-form__group">
               <label htmlFor="price">Preço</label>
@@ -73,10 +73,11 @@ const ProdutosForm = ({ id }) => {
             </div>
             <div className="produtos-form__group">
               <label htmlFor="descricao">Descrição</label>
-              <input id="descricao" name="descricao" type="textarea" onChange={onChange} value={values.descricao} />
+              <input id="descricao" name="descricao" type="textarea" onChange={onChange} value={values.descricao} placeholder="Insira a decrição do produto"/>
             </div>
             <div>
-              <button type="submit">Salvar</button>
+              <button  className="produtos-form__group" type="submit">Salvar</button>
+              
             </div>
           </form>
         )}

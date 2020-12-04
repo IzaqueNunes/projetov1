@@ -12,6 +12,7 @@ import PagesAssociacao from './Produtos/Associacao/Assosiacao';
 import PagesRotaQueijo from './Produtos/RotaQueijo/RotaQueijo';
 import PagesDesejos from './Produtos/Desejos/Desejos';
 import PagesCadastro from './Produtos/Cadastro/Cadastro';
+import PagesProduto from './Produtos/Produto/Produto';
 
 import NavBar from 'components/NavBar';
 
@@ -28,6 +29,7 @@ const Root = () => {
                 <Route path="/rotaqueijo" component={PagesRotaQueijo} />
                 <Route path="/desejos" component={PagesDesejos} />
                 <Route path="/cadastro" component={PagesCadastro} />
+                <Route path="/produto" component={PagesProduto} />
 
 
 

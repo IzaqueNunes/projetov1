@@ -23,7 +23,7 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
         <div className="btn-card">
         <UIButton
           component={Link}
-          to={`/page-produto/${produtos.id}`}
+          to={`/produto/${produtos.id}`}
         >
       
           Ver Produto
