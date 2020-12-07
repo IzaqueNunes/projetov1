@@ -6,15 +6,20 @@ import { SidebarData } from './SidebarData';
 import './NavBar.css';
 import { IconContext } from 'react-icons';
 
+
+
+
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
+  let CPF = localStorage.getItem('@CPF');
 
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <div className='navbar'>
+  
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
@@ -23,9 +28,12 @@ function Navbar() {
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
+                
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
+            
+            <h1 className='bemvindo'>{`Bem vindo ${CPF}`}</h1>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

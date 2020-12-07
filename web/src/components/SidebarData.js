@@ -15,7 +15,6 @@ export const SidebarData = [
     title: 'Fazer Login',
     path: '/login',
     icon: <BsIcons.BsArrowBarRight />,
-    
     cName: 'nav-text'
   },
   {
@@ -46,6 +45,18 @@ export const SidebarData = [
     title: 'Adicionar Produto',
     path: '/create',
     icon: <FaIcons.FaCartPlus />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Acessar Perfil',
+    path: '/',
+    icon: <BsIcons.BsFillPersonFill />,
+    cName: 'nav-text'
+  },
+  {
+    title: 'Sair',
+    path: '/login',
+    icon: <BsIcons.BsArrowBarLeft />,
     cName: 'nav-text'
   },
 ];

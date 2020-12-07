@@ -36,8 +36,11 @@ function login() {
     .catch((error)=>{
       swal(error.message)
     })
+    
+    localStorage.setItem('@CPF', CPF);
   
 }
+
 
 
 
@@ -108,5 +111,6 @@ const LoginForm = () => {
 
 
 };
+
 
 export default LoginForm;

@@ -5,6 +5,12 @@
     justify-content: start;
     align-items: center;
   }
+
+  .bemvindo{
+    color: #fff;
+    justify-content: end;
+    font-size: 18px;
+  }
   
   .menu-bars {
     margin-left: 2rem;
