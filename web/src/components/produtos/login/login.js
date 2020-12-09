@@ -12,19 +12,19 @@ import 'firebase/storage';
 
 
 /* const initialValue = {
-  CPF: 'izaquedione@gmail.com',
+  Email: 'izaquedione@gmail.com',
   Senha: '123456',
 };
  */
 
 
-function login() {
-  const CPF = document.getElementById("CPF").value
+function login(e) {
+  const Email = document.getElementById("Email").value
   const Senha = document.getElementById("Senha").value
 
   firebase
     .auth()
-    .signInWithEmailAndPassword(CPF, Senha)
+    .signInWithEmailAndPassword(Email, Senha)
     .then(()=>{
       swal("Logado com sucesso!")
       .then(()=>{
@@ -37,7 +37,9 @@ function login() {
       swal(error.message)
     })
     
-    localStorage.setItem('@CPF', CPF);
+    localStorage.setItem('@Email', Email);
+
+    e.preventDefault();
   
 }
 
@@ -49,11 +51,11 @@ const LoginForm = () => {
 
   /* const login = useCallback( async (ev) => {
     //ev.prevDefault();
-    const { CPF, Senha } = ev.target.elements;
+    const { Email, Senha } = ev.target.elements;
     try {
       await firebase 
       .auth()
-      .signInWithEmailAndPassword(CPF.value, Senha.value);
+      .signInWithEmailAndPassword(Email.value, Senha.value);
       history.push("/produtos");
     } catch (error) {
       alert(error);
@@ -87,8 +89,8 @@ const LoginForm = () => {
 
      <form className="App-form">
         <div className="produtos-form__group">
-          <label htmlFor="CPF">CPF</label>
-          <input id="CPF" name="CPF" type="text" />
+          <label htmlFor="Email">Email</label>
+          <input id="Email" name="Email" type="text" />
         </div>
         <div className="produtos-form__group">
           <label htmlFor="Senha">Senha</label>

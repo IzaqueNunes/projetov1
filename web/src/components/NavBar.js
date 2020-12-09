@@ -13,7 +13,7 @@ function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
-  let CPF = localStorage.getItem('@CPF');
+  let Email = localStorage.getItem('@Email');
 
   return (
     <>
@@ -33,7 +33,7 @@ function Navbar() {
               </Link>
             </li>
             
-            <h1 className='bemvindo'>{`Bem vindo ${CPF}`}</h1>
+            <h1 className='bemvindo'>{`Bem vindo ${Email}`}</h1>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>

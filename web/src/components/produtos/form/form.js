@@ -42,6 +42,7 @@ const ProdutosForm = ({ id }) => {
       .then((response) => {
         history.push('/');
       });
+
   }
 
   return (
