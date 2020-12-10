@@ -74,7 +74,7 @@ const ProdutosForm = ({ id }) => {
             </div>
             <div className="produtos-form__group">
               <label htmlFor="descricao">Descrição</label>
-              <input id="descricao" name="descricao" type="textarea" onChange={onChange} value={values.descricao} placeholder="Insira a decrição do produto"/>
+              <textarea id="descricao" name="descricao" type="textarea" onChange={onChange} value={values.descricao} placeholder="Insira a decrição do produto"/>
             </div>
             <div>
               <button  className="produtos-form__group" type="submit">Salvar</button>

@@ -6,6 +6,9 @@ import UIButton from 'components/UI/Button/Button';
 
 const verproduto = (produtos)=> {
   localStorage.setItem('@titulo', produtos.title);
+  localStorage.setItem('@preco', produtos.price);
+  localStorage.setItem('@descricao', produtos.descricao);
+  localStorage.setItem('@img', produtos.imageUrl);
   
 }
 
@@ -30,7 +33,7 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
         <UIButton
           component={Link}
           to={`/produto/${produtos.id}`}
-        onClick={verproduto}>
+        onClick={()=>verproduto(produtos)}>
           Ver Produto
         </UIButton>
         <UIButton

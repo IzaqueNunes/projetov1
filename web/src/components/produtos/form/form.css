@@ -27,6 +27,15 @@
     width: 300px;
 }
 
+.produtos-form__group textarea{
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 100px;
+    width: 300px;
+
+}
+
 .produtos-title{
     color:#060b26;
 }

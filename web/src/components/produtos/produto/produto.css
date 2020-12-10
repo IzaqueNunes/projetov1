@@ -1,0 +1,90 @@
+.container {
+    border-radius: 8px;
+    border: 1px solid #C3C3C3;
+    box-shadow: 0 2px 7px 0 rgba(0,0,0, 0.15);
+    display: flex;
+    padding: 15px;
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+    
+
+    
+  }
+  
+  
+  .imgproduto{
+    max-width: 200px;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .titulo {
+    font-size: 25px;
+    color: #060b26;
+    text-align: center;
+  }
+  
+  .preco{
+    font-size: 22px;
+    font-weight: 700;
+    color: #060b26;
+    text-align: center;
+    
+  }
+
+  .descricao{
+    font-size: 22px;
+    font-weight: 700;
+    color: #060b26;
+    text-align: center;
+}
+  
+  .produtos-card__footer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .produtos-card__comment {
+    color: #95A5A6;
+    font-weight: 700;
+  }
+  
+  .produtos-card__comments-count {
+    margin-left: auto;
+    margin-right: 10px;
+    color: #060b26;
+  }
+  
+  .produtos-card__link {
+    border: 1px solid #060b26;
+    border-radius: 4px;
+    color: #060b26;
+    text-decoration: none;
+    padding: 8px 10px;
+    margin-right: 20px;
+  }
+
+  .btn-card{
+    align-items: center;
+    justify-content: center;
+    margin-left: 350px;
+
+  }
+
+  .btn-card__edit{
+    margin-left: 8px;
+  }
+
+  .produtos-card__delete-button{
+    border: unset;
+    background-color: unset;
+    font-size: 25px;
+    color: #1a83ff;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  
