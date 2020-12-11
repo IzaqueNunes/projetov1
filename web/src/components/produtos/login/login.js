@@ -29,7 +29,7 @@ function login(e) {
       swal("Logado com sucesso!")
       .then(()=>{
         setTimeout(()=>{
-          window.location.replace('/produtos')
+          window.location.replace('/')
         },1000)
       })
     })
@@ -48,24 +48,6 @@ function login(e) {
 
 
 const LoginForm = () => {
-
-  /* const login = useCallback( async (ev) => {
-    //ev.prevDefault();
-    const { Email, Senha } = ev.target.elements;
-    try {
-      await firebase 
-      .auth()
-      .signInWithEmailAndPassword(Email.value, Senha.value);
-      history.push("/produtos");
-    } catch (error) {
-      alert(error);
-      //setError(true);
-    }
-  }, []);
- */
-
-
-
 
   var firebaseConfig = {
     apiKey: "AIzaSyAT0cQob-JUv_7L69sVACYBcSa3nlIPYsI",

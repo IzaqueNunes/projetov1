@@ -5,7 +5,7 @@ import Associacao from 'components/produtos/associacao/associacao';
 
 
 const PagesAssociacao = () => {
-    const { id } = useParams();
+    const {} = useParams();
 
     return (
         

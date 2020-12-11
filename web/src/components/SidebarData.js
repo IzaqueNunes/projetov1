@@ -105,7 +105,7 @@ export const SidebarData = [
   },
   {
     title: 'Sair',
-    path: '/',
+    path: '',
     icon: <BsIcons.BsArrowBarLeft onClick={logout}/>,
     cName: 'nav-text'
   },
