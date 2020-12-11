@@ -13,6 +13,7 @@ import PagesRotaQueijo from './Produtos/RotaQueijo/RotaQueijo';
 import PagesDesejos from './Produtos/Desejos/Desejos';
 import PagesCadastro from './Produtos/Cadastro/Cadastro';
 import PagesProduto from './Produtos/Produto/Produto';
+import PagesPerfil from './Produtos/Perfil/Perfil';
 
 import NavBar from 'components/NavBar';
 
@@ -30,6 +31,7 @@ const Root = () => {
                 <Route path="/desejos" component={PagesDesejos} />
                 <Route path="/cadastro" component={PagesCadastro} />
                 <Route path="/produto" component={PagesProduto} />
+                <Route path="/perfil" component={PagesPerfil} />
 
 
 

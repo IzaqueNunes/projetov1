@@ -13,7 +13,7 @@ const Produto = () => {
         <div className="container">
             <h1 className="titulo">{`Produto: ${titulo}`}</h1>
             <img src={`${img}`} className="imgproduto"/>
-            <p><h2 className="preco">{`Preço: R$${preco},00 reais`}</h2></p>
+            <p><h2 className="preco">{`Preço: R$${preco} reais`}</h2></p>
             <p><h2 className="descricao">{`Descrição: ${descricao} `}</h2></p>
             
             
