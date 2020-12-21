@@ -1,23 +1,156 @@
-import React from 'react';
+/* import React, { Component } from 'react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-
-const RotaQueijo = () => {
+class RotaQueijo extends Component {
+ render(){
     return (
-        <div>
-            <h1>Rota do Queijo</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      <div>
+          <h1>Rota do Queijo</h1>
+            <Map google={this.props.google} 
+            style={{ height: "1000px", width: "1000px", position: "relatibve"}}
+            zoom={12}
+            google={this.props.google}
+            
+            initialCenter={{
+              lat:  -15.739797098828687,
+              lng: -43.022118122999956
+            }} 
+            onClick={this.onMapClicked}>
 
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                <Marker
+                    title={'Teste'}
+                    name={'IFNMG'}
+                    position={{ lat:  -15.739797098828687, lng: -43.022118122999956 }}
+                     />
 
+                <InfoWindow onClose={this.onInfoWindowClose}>
+                    
+                </InfoWindow>
+            </Map>
+      </div>
+    );
+ }
+}
+export default GoogleApiWrapper({
+    apiKey: ("AIzaSyAyDlK8HVHUBDQTfV1RxCFzP-KLxmj3nZg")
+  })(RotaQueijo) */
 
-Where does it come from?
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+ /*  import React from 'react'
+  import { GoogleMap, LoadScript } from '@react-google-maps/api';
+  
+  
+  function RotaQueijo() {
+    const [map, setMap] = React.useState(null)
+  
+    const onLoad = React.useCallback(function callback(map) {
+      const bounds = new window.google.maps.LatLngBounds();
+      map.fitBounds(bounds);
+      setMap(map)
+    }, [])
+  
+    const onUnmount = React.useCallback(function callback(map) {
+      setMap(null)
+    }, [])
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-        </div>
-        
+    const  containerStyle  = {
+        width :  ' 400px ' ,
+        height :  ' 400px '
+     };
+     
+     const  center  = {
+        lat:  -15.739797098828687,
+        lng: -43.022118122999956
+     };
+  
+    return (
+      <LoadScript
+        googleMapsApiKey="AIzaSyAyDlK8HVHUBDQTfV1RxCFzP-KLxmj3nZg"
+      >
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={10}
+          onLoad={onLoad}
+          onUnmount={onUnmount}
+        >
+          { /* Child components, such as markers, info windows, etc.  }
+          <></>
+        </GoogleMap>
+      </LoadScript>
     )
+  }
+  
+  export default React.memo(RotaQueijo) */
+  
+import React, {Component} from 'react';
+import {TileLayer, Marker, Popup, MapContainer} from 'react-leaflet';
+import 'leaflet/dist/leaflet-src';
+import './rotaqueijo.css';
+import L from 'leaflet';
+import styled from 'styled-components';
+
+const position ={
+  lat:  -15.739797098828687,
+  lng: -43.022118122999956
 };
 
+const Wrapper = styled.div `
+  width: ${props => props.width};
+  height: ${props => props.height};
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  background-Color: red;
+`;
+
+
+/* 
+const RotaQueijo=()=> {
+
+     return (
+      <div className='map'>
+        <MapContainer style={Wrapper}
+        center={position} zoom={13} scrollWheelZoom={false}>
+           <TileLayer
+             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+           />
+           <Marker position={position}>
+           </Marker>
+        </MapContainer>
+      </div>
+     
+     );
+
+}
+
 export default RotaQueijo;
+
+
+ */
+
+ export default class RotaQueijo extends React.Component{
+
+  componentDidMount(){
+    this.map = L.map('map', {
+      center: [-15.739797098828687, -43.022118122999956],
+      position: [-15.739797098828687, -43.022118122999956],
+      zoom: 6,
+      zoomControl: false,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      detectRetina: true,
+      maxZoom: 20,
+      maxNativeZoom: 17,
+    }).addTo(this.map);
+
+  }
+
+  render(){
+    return <Wrapper width='1280px' height= '720px' id='map'/>
+  }
+
+
+ }
+

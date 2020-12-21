@@ -34,6 +34,13 @@
     text-align: center;
     
   }
+  .quantidade{
+    font-size: 22px;
+    font-weight: 700;
+    color: #060b26;
+    text-align: center;
+    
+  }
 
   .descricao{
     font-size: 22px;

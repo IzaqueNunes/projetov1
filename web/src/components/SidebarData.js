@@ -12,7 +12,6 @@ import 'firebase/storage';
 const Email = localStorage.getItem('@Email');
 
 function logout(e){
- 
 
   firebase
     .auth()

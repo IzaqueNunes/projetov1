@@ -11,6 +11,8 @@ const ProdutosList = ({loading, produtos, refetch}) =>{
         method: 'DELETE',
     });
 
+    
+
     if (produtos === null || deleteProdutoInfo.loading){
         return <div>Carregando...</div>
     }
@@ -24,7 +26,8 @@ const ProdutosList = ({loading, produtos, refetch}) =>{
                         url:`/produtos/${produtos.id}`
                     });
                     refetch();
-                }}/>
+                }}
+                />
                 ))}
         </div>
     );

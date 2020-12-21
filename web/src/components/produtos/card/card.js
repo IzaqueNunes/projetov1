@@ -1,18 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './card.css';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {BiTrash} from 'react-icons/bi';
 import UIButton from 'components/UI/Button/Button';
+import {isLogged} from 'components/utils/auth';
+import swal from 'sweetalert';
+import {Rating} from '@material-ui/lab';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
+import 'components/produtos/list/list.js';
 
 const verproduto = (produtos)=> {
   localStorage.setItem('@titulo', produtos.title);
   localStorage.setItem('@preco', produtos.price);
   localStorage.setItem('@descricao', produtos.descricao);
   localStorage.setItem('@img', produtos.imageUrl);
+  localStorage.setItem('@quantidade', produtos.quantidade);
   
 }
 
+  const logado = (onClickDelete) => isLogged() 
+    ?onClickDelete() 
+    :swal("Faça login para executar esta ação.")
+
+
+
 const ProdutosCard = ({ produtos, onClickDelete }) => (
+ 
   
   <div className="produtos-card">
     
@@ -30,6 +45,16 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
           {produtos.comments.length > 1 ? 'Comentários' : 'Avaliações'}
         </button>
         <div className="btn-card">
+        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Typography component="legend">Controlled</Typography>
+        <Rating
+          name="simple-controlled"
+          /* value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }} */
+        />
+      </Box>
         <UIButton
           component={Link}
           to={`/produto/${produtos.id}`}
@@ -46,7 +71,7 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
       <button 
         type="button" 
         className="produtos-card__delete-button" 
-        onClick={onClickDelete}>
+        onClick={()=>logado(onClickDelete)}>
         <BiTrash/>
       </button>
     </div>

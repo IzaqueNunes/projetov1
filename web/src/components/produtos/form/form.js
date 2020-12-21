@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './form.css';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/storage';
 
 const initialValue = {
   title: '',
@@ -10,6 +14,26 @@ const initialValue = {
   imageUrl: '',
   descricao: '',
 }
+/* 
+function uploadIMG (){
+
+  const imgqueijo = document.getElementById("imageUrl");
+  imgqueijo = firebase.storage();
+
+
+
+}
+var firebaseConfig = {
+  apiKey: 'AIzaSyAT0cQob-JUv_7L69sVACYBcSa3nlIPYsI',
+  authDomain: 'projetoqueijo-f22a6.firebaseapp.com',
+  databaseURL: 'https://projetoqueijo-f22a6.firebaseio.com',
+  storageBucket: 'projetoqueijo-f22a6.appspot.com'
+};
+if(!firebase.apps.length){
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);    
+  } */
+
 
 const ProdutosForm = ({ id }) => {
   const [values, setValues] = useState(id ? null: initialValue);
