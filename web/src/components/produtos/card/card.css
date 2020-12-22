@@ -27,13 +27,13 @@
   }
   
   .produtos-card__footer {
-    display: flex;
+    display: block;
     align-items: center;
   }
   
   .produtos-card__comment {
     color: #95A5A6;
-    font-weight: 700;
+    font-weight: 300;
   }
   
   .produtos-card__comments-count {
@@ -54,7 +54,9 @@
   .btn-card{
     align-items: center;
     justify-content: center;
-    margin-left: 350px;
+    margin-left: 400px;
+    display: block;
+    margin-top: 0px;
 
   }
 
@@ -66,10 +68,18 @@
     border: unset;
     background-color: unset;
     font-size: 25px;
-    color: #1a83ff;
+    color: #060b26;
     position: absolute;
     top: 8px;
     right: 8px;
   }
+
+  .avaliacao{
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+  
+    
+}
 
   
