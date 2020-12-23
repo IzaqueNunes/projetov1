@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './NavBar.css';
 import { IconContext } from 'react-icons';
+import logomenu from '../imagens/logo.jpg';
 
 
 
@@ -31,8 +32,9 @@ function Navbar() {
                 
                 <AiIcons.AiOutlineClose />
               </Link>
+              
             </li>
-            
+            <img src={logomenu} className='logomenu'/>
             <h1 className='bemvindo'>{`Bem vindo ${Email}`}</h1>
             {SidebarData.map((item, index) => {
               return (
@@ -40,8 +42,11 @@ function Navbar() {
                   <Link to={item.path}>
                     {item.icon}
                     <span>{item.title}</span>
+                    
                   </Link>
+                  
                 </li>
+                
               );
             })}
           </ul>

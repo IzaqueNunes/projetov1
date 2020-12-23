@@ -7,6 +7,17 @@
    
   }
 
+  .logomenu{
+    border-radius: 800px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(185, 147, 23);
+}
+
+
+
   .bemvindo{
     color: #fff;
     justify-content: end;
