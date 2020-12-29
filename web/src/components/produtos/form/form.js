@@ -7,6 +7,10 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 
+import { render } from "react-dom";
+import { storage } from '../firebase/index.js';
+ 
+
 const initialValue = {
   title: '',
   price: 0,
@@ -14,26 +18,6 @@ const initialValue = {
   imageUrl: '',
   descricao: '',
 }
-/* 
-function uploadIMG (){
-
-  const imgqueijo = document.getElementById("imageUrl");
-  imgqueijo = firebase.storage();
-
-
-
-}
-var firebaseConfig = {
-  apiKey: 'AIzaSyAT0cQob-JUv_7L69sVACYBcSa3nlIPYsI',
-  authDomain: 'projetoqueijo-f22a6.firebaseapp.com',
-  databaseURL: 'https://projetoqueijo-f22a6.firebaseio.com',
-  storageBucket: 'projetoqueijo-f22a6.appspot.com'
-};
-if(!firebase.apps.length){
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);    
-  } */
-
 
 const ProdutosForm = ({ id }) => {
   const [values, setValues] = useState(id ? null: initialValue);
@@ -69,6 +53,44 @@ const ProdutosForm = ({ id }) => {
 
   }
 
+  const ReactFirebaseFileUpload = () => {
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState("");
+    const [progress, setProgress] = useState(0);
+  
+    const handleChange = e => {
+      if (e.target.files[0]) {
+        setImage(e.target.files[0]);
+      }
+    };
+  
+    const handleUpload = () => {
+      const uploadTask = storage.ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        snapshot => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        error => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then(url => {
+              setUrl(url);
+            });
+        }
+      );
+    };
+  
+    console.log("image: ", image);
+
   return (
     <div className="App-form">
         <div className="produtos-title">
@@ -95,6 +117,18 @@ const ProdutosForm = ({ id }) => {
             <div className="produtos-form__group">
               <label htmlFor="imageUrl">Imagem</label>
               <input id="imageUrl" name="imageUrl" type="text" onChange={onChange} value={values.imageUrl} />
+              <div>
+        <progress value={progress} max="100" />
+        <br />
+        <br />
+        <input type="file" onChange={handleChange} />
+        <button onClick={handleUpload}>Upload</button>
+        <br />
+        {url}
+        <br />
+        <img src={url || "http://via.placeholder.com/300"} alt="firebase-image" width="120px" height="120px" />
+      </div>
+            
             </div>
             <div className="produtos-form__group">
               <label htmlFor="descricao">Descrição</label>
@@ -109,5 +143,8 @@ const ProdutosForm = ({ id }) => {
     </div>
   )
 };
+render(<ReactFirebaseFileUpload />, document.querySelector("#root"));
+};
+
 
 export default ProdutosForm;

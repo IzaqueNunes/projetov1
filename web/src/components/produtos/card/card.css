@@ -57,7 +57,14 @@
     margin-left: 400px;
     display: block;
     margin-top: 0px;
+  }
 
+  .favorite{
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-top: 0px;
+    margin-left: 215px;
   }
 
   .btn-card__edit{

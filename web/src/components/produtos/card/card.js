@@ -2,12 +2,11 @@ import React from 'react';
 import './card.css';
 import {Link} from "react-router-dom";
 import {BiTrash} from 'react-icons/bi';
+import {GrFavorite} from 'react-icons/gr';
 import UIButton from 'components/UI/Button/Button';
 import {isLogged} from 'components/utils/auth';
 import swal from 'sweetalert';
 import ReactStars from "react-rating-stars-component";
-import { render } from "react-dom";
-
 import 'components/produtos/list/list.js';
 
 const verproduto = (produtos)=> {
@@ -16,7 +15,6 @@ const verproduto = (produtos)=> {
   localStorage.setItem('@descricao', produtos.descricao);
   localStorage.setItem('@img', produtos.imageUrl);
   localStorage.setItem('@quantidade', produtos.quantidade);
-  
 }
 
   const logado = (onClickDelete) => isLogged() 
@@ -25,7 +23,6 @@ const verproduto = (produtos)=> {
 
 const ratingChanged = (newRating) =>{
   console.log(newRating);
-  
 }
 
 
@@ -67,6 +64,11 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
           to={`/edit/${produtos.id}`}
           className="btn-card__edit"
         >Editar</UIButton>
+
+        <div className="favorite" >
+      
+          Favoritar
+        </div>
         
         
         </div>
