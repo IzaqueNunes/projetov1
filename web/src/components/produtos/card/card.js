@@ -66,7 +66,6 @@ const ProdutosCard = ({ produtos, onClickDelete }) => (
         >Editar</UIButton>
 
         <div className="favorite" >
-      
           Favoritar
         </div>
         
